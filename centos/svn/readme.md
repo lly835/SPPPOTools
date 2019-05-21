@@ -1,10 +1,10 @@
-# svn简易安装脚本
+#### svn简易安装脚本
 
 >通过脚本一键安装svn
 
 | 名称      |     结果 |   备注   |
 | :------: | :------:| :------: |
-| 实测环境    |   centos6.2、centos7.3 `OK` |    |
+| 实测环境    |   centos6.2、centos7.3 |  实测通过  |
 | 脚本名称    |   svnInstall.sh  |    |
 | 执行方式    |   /bin/bash svnInstall.sh  |    |
 | 是否需要传参数    |   否  |    |
