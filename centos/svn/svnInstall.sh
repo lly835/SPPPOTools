@@ -9,11 +9,11 @@ logdir=/data/log/shell          #日志路径
 log=$logdir/log.log            #日志文件
 is_font=1              #终端是否打印日志: 1打印 0不打印
 is_log=1               #是否记录日志: 1记录 0不记录
-svnDir=/data/svn 				#svn数据路径
-svnPasswd=/data/svn/passwd      #svn用户认证文件
-svnPolicy=/data/svn/policy      #svn用户权限控制文件
-DefaultUserPasswd="admin  admin"  #svn缺省管理账号
-DefaultProjectName=project      #svn缺省项目
+svnDir=/data/svn 				 #svn数据路径
+svnPasswd=/data/svn/passwd       #svn用户认证文件
+svnPolicy=/data/svn/policy       #svn用户权限控制文件
+DefaultUserPasswd="admin  admin" #svn缺省管理账号
+DefaultProjectName=project       #svn缺省项目
 
 
 datef(){
