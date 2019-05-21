@@ -12,7 +12,7 @@ is_log=1               #是否记录日志: 1记录 0不记录
 svnDir=/data/svn 				#svn数据路径
 svnPasswd=/data/svn/passwd      #svn用户认证文件
 svnPolicy=/data/svn/policy      #svn用户权限控制文件
-DefaultUserPasswd=admin  admin  #svn缺省管理账号
+DefaultUserPasswd="admin  admin"  #svn缺省管理账号
 DefaultProjectName=project      #svn缺省项目
 
 

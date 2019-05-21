@@ -10,7 +10,7 @@
 | 是否需要传参数    |   否  |    |
 | 是否有配置参数    |   有,见下  |    |
 
-配置参数`svnInstall.sh`      
+**配置参数**`svnInstall.sh`      
 ```
 logdir=/data/log/shell          #日志路径
 log=$logdir/log.log            #日志文件
@@ -23,6 +23,9 @@ DefaultUserPasswd=admin  admin  #svn缺省管理账号
 DefaultProjectName=project      #svn缺省项目
 ```
 
+**运行截图**        
+![cmd](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/svn/images/cmd.png)
 
+![cmd](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/svn/images/web.png)
 
 
