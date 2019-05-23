@@ -7,6 +7,7 @@
 | 名称      |     结果 |   备注   |
 | :------: | :------:| :------: |
 | 实测环境    |   centos6.2、centos7.3 |  实测通过  |
+| git路径    |   [svnInstall.sh](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/svn/svnInstall.sh)  |    |
 | 脚本名称    |   svnInstall.sh  |    |
 | 执行方式    |   /bin/bash svnInstall.sh  |    |
 | 是否需要传参数    |   否  |    |
