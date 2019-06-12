@@ -2,7 +2,7 @@
 #author: 黄高明
 #date: 2019-05-22
 #qq: 530035210
-#blog: http://my.oschina.net/pwd/blog
+#blog: https://www.pvcreate.com/
 #svn简易安装脚本(centos 6 7 测试通过)
 
 logdir=/data/log/shell          #日志路径
