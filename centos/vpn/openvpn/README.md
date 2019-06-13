@@ -24,7 +24,7 @@
 - Remove a client （删除客户端）
 - Uninstall OpenVPN （卸载openvpn）
 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/images/openvpn.png)
+[openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/images/openvpn.png)
 
 ##### openvpn客户端
 由于国情的原因,openvpn的官网在国内基本不可用。
@@ -32,11 +32,11 @@
 
 |    平台          | 路径  | 
 | ------------ | ---- | 
-|  Linux  |   ![openvpn-2.4.7.tar.gz](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/openvpn-2.4.7.tar.gz)  |  
-|  Win7  |   ![openvpn-install-2.4.7-I607-Win10.exe](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/openvpn-install-2.4.7-I607-Win10.exe)  |  
-|  Win10  |   ![openvpn-install-2.4.7-I607-Win7.exe](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/openvpn-install-2.4.7-I607-Win7.exe)  |  
-|  Mac  |   ![Tunnelblick_3.7.6a_build_5080.dmg.tar.gz](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/Tunnelblick_3.7.6a_build_5080.dmg.tar.gz)  |  
-|  Android  |   ![android.apk](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/openvpn_v3.0.5_apkpure.com.apk)  |  
+|  Linux  |   [openvpn-2.4.7.tar.gz](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/openvpn-2.4.7.tar.gz)  |  
+|  Win7  |   [openvpn-install-2.4.7-I607-Win10.exe](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/openvpn-install-2.4.7-I607-Win10.exe)  |  
+|  Win10  |   [openvpn-install-2.4.7-I607-Win7.exe](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/openvpn-install-2.4.7-I607-Win7.exe)  |  
+|  Mac  |   [Tunnelblick_3.7.6a_build_5080.dmg.tar.gz](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/Tunnelblick_3.7.6a_build_5080.dmg.tar.gz)  |  
+|  Android  |   [android.apk](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/client/openvpn_v3.0.5_apkpure.com.apk)  |  
 
 ##### 支持平台
 
