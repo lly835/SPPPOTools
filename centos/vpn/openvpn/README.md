@@ -24,7 +24,7 @@
 - Remove a client （删除客户端）
 - Uninstall OpenVPN （卸载openvpn）
 
-[openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/images/openvpn.png)
+![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/images/vpn.png)
 
 ##### openvpn客户端
 由于国情的原因,openvpn的官网在国内基本不可用。
