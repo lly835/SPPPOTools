@@ -3,22 +3,22 @@
 #date: 2019-05-22
 #qq: 530035210
 #blog: https://www.pvcreate.com/
-#svn全量备份
-
+#svn全量备份和增量备份
 logdir=/data/log/shell          #日志路径
 log=$logdir/log.log            #日志文件
 is_font=1              #终端是否打印日志: 1打印 0不打印
 is_log=1               #是否记录日志: 1记录 0不记录
 now=`date +%Y%m%d_%H%M%S`
-hostip=`/sbin/ifconfig eth0|grep "inet addr"|awk '{print $2}'|awk -F: '{print $2}'`
-svndir=/data/svn
-basedir=/data/backup/svn
-backupdir=$basedir/$now
+svndir=/data/svn      		#svn目录
+basedir=/data/backup/svn    #svn备份目录 
+backupdir=$basedir/$now		#当前时间svn的备份目录
 maxBackupTimes=15	#最大备份保留天数
 svnVersionFile=$basedir/svnVersionFile.txt	#svn版本记录
 backWays=0 			#0全量备份 1增量备份				
 fullBack="hotcopy"  #hotcopy:hotcopy全备方式 dump:dump备份方式
 tarFile=1			#0不压缩,1压缩
+hostip=`ip address |grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" |grep -Ev "^127|^0"  |head -n 1`
+
 
 datef(){
     date "+%Y-%m-%d %H:%M:%S"
@@ -42,8 +42,12 @@ print_log(){
 
 source /etc/profile
 
-svnbackup(){
 
+svnbackup(){
+	if [[ $1 != "" ]]; then
+		svndir=$1
+	fi
+	[[ ! -d $svndir ]] && print_log "$svndir svn目录不存在" 1 && exit
 	[[  -f /tmp/svnbackup.faild ]] && print_log "上次svn备份失败,此次备份终止,请检查备份是否正常,如正常请删除/tmp/svnbackup.faild" 1 && exit
 	mkdir -p $backupdir
 	print_log "$hostip 开始备份svn."
@@ -107,4 +111,4 @@ svnbackup(){
 	print_log "${hostip} svn全部备份成功"
 }
 
-svnbackup
+svnbackup $1
