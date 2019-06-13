@@ -95,7 +95,7 @@ svnbackup(){
 			echo "$i:$version" >> ${svnVersionFile}
 		fi
 	done
-	count=`ls $backupdir/$*|wc -w`
+	count=`ls $backupdir/*|wc -w`
 	if [[ $count -eq 0  ]]; then
 		print_log "${hostip} $backupdir:备份目录为空" 2
 		exit 4

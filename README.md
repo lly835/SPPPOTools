@@ -35,9 +35,8 @@
 
 | 序号 | 标题 |
 | :--------: | :------ |
-| 1 | [mycat安装和部署](#) |
-| 2 | [mycat配置文件详解](#) |
-| 3 | [mycat中间件的用法](#) |
+| 1 | [openvpn一键安装部署](https://gitee.com/lookingdreamer/SPPPOTools/tree/master/centos/vpn/openvpn) |
+
 
 #### 参与贡献
 一个人的力量毕竟是有限的，欢迎各位同仁推荐好的运维工具!!   
