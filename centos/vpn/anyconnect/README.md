@@ -9,7 +9,7 @@
 | :------: | :------:| :------: |
 | 实测环境    |  centos7.3 |  实测通过  |
 | 支持平台    |   CentOS/RedHat 7 |    |
-| git路径    |   [ocserv-auto.sh](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/easyconect/ocserv-auto.sh)  |    |
+| git路径    |   [ocserv-auto.sh](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/ocserv-auto.sh)  |    |
 | 脚本名称    |   ocserv-auto.sh  |    |
 | 执行方式    |   /bin/bash ocserv-auto.sh  |    |
 | 是否需要传参数    |   否  |    |
@@ -20,7 +20,7 @@
 执行`/bin/bash ocserv-auto.sh`即可完成一键安装，安装过程会交互式提示需要输出账号密码
 安装完成会自动添加到开启启动项 
 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/easyconect/images/install.png)
+![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/index.jpg)
 
 相关常用命令如下
 
@@ -50,26 +50,26 @@
 
 ios下载： 在app store中搜索anyconnect安装即可
 
-如果以上网址打开，可以在我的git下载: [https://gitee.com/lookingdreamer/SPPPOTools/tree/master/centos/vpn/easyconect/client](https://gitee.com/lookingdreamer/SPPPOTools/tree/master/centos/vpn/easyconect/client)
+如果以上网址打开，可以在我的git下载: [https://gitee.com/lookingdreamer/SPPPOTools/tree/master/centos/vpn/anyconnect/client](https://gitee.com/lookingdreamer/SPPPOTools/tree/master/centos/vpn/anyconnect/client)
 
 
 ##### ios客户端使用示例
 - 1.在app store 搜索anyconnect下载安装
 - 2.打开客户端在 设置处 关闭阻止不信任的服务器
    因为脚本默认采用的自签名证书,同时第一次的连接时候也会提示不信任的服务器，选择继续即可 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/easyconect/images/notrust.jpg)
+![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/notrust.jpg)
 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/easyconect/images/notrust1.png)
+![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/notrust1.png)
 
 - 3.新建服务器配置，输入脚本创建用户名和密码即可
 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/easyconect/images/index.jpg)
+![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/index.jpg)
 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/easyconect/images/connect.png)
+![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/connect.png)
 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/easyconect/images/user.png)
+![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/user.png)
 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/easyconect/images/pass.jpg)
+![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/pass.jpg)
 
 
 
