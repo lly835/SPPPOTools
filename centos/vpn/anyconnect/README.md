@@ -1,4 +1,4 @@
-#### 通过脚本一键安装openvpn 
+#### 通过脚本一键安装ocserv(anyconnect服务端)  
 
 >  日期：2019-06-14          
 >  类别：vpn系列         
@@ -67,9 +67,17 @@ ios下载： 在app store中搜索anyconnect安装即可
 
 ![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/connect.png)
 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/user.png)
+![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/user.jpeg)
 
 ![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/anyconnect/images/pass.jpg)
 
+#### 相关文章
+| 序号 | 标题 |
+| :--------: | :------ |
+| 1 | [通过脚本一键安装ocserv(anyconnect服务端)](https://www.pvcreate.com/index.php/archives/193/) |
+| 2 | [CentOS7使用Ocser搭建CiscoAnyconnect服务器(配置使用)](https://www.pvcreate.com/index.php/archives/195/) |
+| 3 | [通过脚本一键安装openvpn](https://www.pvcreate.com/index.php/archives/194/) |
+| 4 | [OpenVPN同时监听TCP和UDP端口](https://www.pvcreate.com/index.php/archives/196/) |
+| 5 | [CentOS 7安装配置PPTP](https://www.pvcreate.com/index.php/archives/197/) |
 
 

@@ -24,8 +24,6 @@
 - Remove a client （删除客户端）
 - Uninstall OpenVPN （卸载openvpn）
 
-![openvpn](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/centos/vpn/openvpn/images/vpn.png)
-
 ##### openvpn客户端
 由于国情的原因,openvpn的官网在国内基本不可用。
 通过git暂时保存以下客户端
@@ -51,4 +49,13 @@
 | Ubuntu 16.04 |   ✅  |  ✅  |   ❌   |   ❌  |
 | Ubuntu 18.04 |   ❌  |  ✅  |   ✅   |   ✅  |
 | Ubuntu 19.04 |   ❌  |  ✅  |   ✅   |   ✅  |
+
+#### 相关文章
+| 序号 | 标题 |
+| :--------: | :------ |
+| 1 | [通过脚本一键安装ocserv(anyconnect服务端)](https://www.pvcreate.com/index.php/archives/193/) |
+| 2 | [CentOS7使用Ocser搭建CiscoAnyconnect服务器(配置使用)](https://www.pvcreate.com/index.php/archives/195/) |
+| 3 | [通过脚本一键安装openvpn](https://www.pvcreate.com/index.php/archives/194/) |
+| 4 | [OpenVPN同时监听TCP和UDP端口](https://www.pvcreate.com/index.php/archives/196/) |
+| 5 | [CentOS 7安装配置PPTP](https://www.pvcreate.com/index.php/archives/197/) |
 
