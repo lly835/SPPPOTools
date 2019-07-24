@@ -1,0 +1,6 @@
+.vagrant/*
+.bash_profile
+.viminfo
+Vagrantfile
+.docker/*
+*.png
