@@ -9,22 +9,21 @@ logdir=/data/log/shell          #日志路径
 log=$logdir/log.log            #日志文件
 is_font=1              #终端是否打印日志: 1打印 0不打印
 is_log=0               #是否记录日志: 1记录 0不记录
-hostip="192.168.99.100" #docker host machine 
-networkName="o2o-network"
-dockerMaster="o2o-mysql-master"
-dockerSlave="o2o-mysql-slave"
-rootPass="d3eb23f714529f1e73f934876d1b39"
-replicationUser="backup"
-replicationPasss="04698e89512807"
-masterPort=3307
-isToolBox=1
-dockerCompose="docker-compose.yml.template"
-memLimit="8g"
-masterData=".\/master\/db"
-slaveData=".\/slave\/db"
-masterConf=".\/master\/my.cnf"
-slaveConf=".\/slave\/my.cnf"
-waitMYSQLTime=30
+hostip="10.0.0.107"    #docker host machine 
+networkName="o2o-network"       #docker网络
+dockerMaster="o2o-mysql-master" #master 名称
+dockerSlave="o2o-mysql-slave"   #slave 名称
+rootPass="d3eb23f714529f1e73f934876d1b39" #root密码
+replicationUser="backup"                  #复制账号
+replicationPasss="04698e89512807"         #复制密码
+masterPort=3307                           #master映射后端口
+isToolBox=0                               #是否toolBox安装docker环境，1是 0否
+dockerCompose="docker-compose.yml.template" #docker-compose.yml模板文件
+memLimit="8g"               #内存限制
+masterData=".\/master\/db"  #master数据目录
+slaveData=".\/slave\/db"    #slave数据目录
+waitMYSQLTime=30            #mysql初始化后等待时间,单位秒
+waitSlaveTime=15            #mysql主从连接初始化后等待时间,单位秒
 
 datef(){
     date "+%Y-%m-%d %H:%M:%S"
@@ -69,7 +68,7 @@ runCommand(){
 #init docker for mysql
 init(){
     if [[ $isToolBox -eq 0 ]]; then
-        dockerYaml=`cat $dockerCompose | sed  "s/,--innodb-use-native-aio=0//g" ` 
+        dockerYaml=`cat $dockerCompose | sed  "s/,--skip-innodb-use-native-aio//g" ` 
     else
         dockerYaml=`cat $dockerCompose`      
     fi
@@ -80,8 +79,6 @@ init(){
     dockerYaml=`echo "$dockerYaml" |sed  "s/##dockerMaster##/${dockerMaster}/g"`
     dockerYaml=`echo "$dockerYaml" |sed  "s/##dockerSlave##/${dockerSlave}/g"`
     dockerYaml=`echo "$dockerYaml" |sed  "s/##networkName##/${networkName}/g"`
-    dockerYaml=`echo "$dockerYaml" |sed  "s/##masterConf##/${masterConf}/g"`
-    dockerYaml=`echo "$dockerYaml" |sed  "s/##slaveConf##/${slaveConf}/g"`
     echo "${dockerYaml}" > docker-compose.yml
     print_log  "$FUNCNAME(): init docker-compose.yml"
     if [[ -z `docker network ls  |grep "$networkName"` ]]; then
@@ -140,8 +137,8 @@ config(){
         print_log "$FUNCNAME(): get slave status faild" 1
         exit
     fi
-
-    sleep 5
+    print_log "$FUNCNAME(): waiting mysql slave startup....${waitSlaveTime}s"
+    sleep ${waitSlaveTime}
     runCommand $dockerSlave "show slave status \G;"
     if [[ -z `echo "${result}" |grep "Slave_IO_Running" |grep "Yes"` || -z `echo "${result}" |grep "Slave_SQL_Running" |grep "Yes"` ]];then
         print_log "result:${result}"
@@ -149,22 +146,35 @@ config(){
         exit
     fi
     print_log "$FUNCNAME(): master and slave create successful,all done!" 
+    exit 0
 
 }
 
 clean(){
     docker kill o2o-mysql-master o2o-mysql-slave
     docker rm o2o-mysql-master o2o-mysql-slave
+    docker image rm docker-mysql-replication_mysql-master docker-mysql-replication_mysql-slave
     rm -rf master/db/* slave/db/*
+    rm -f docker-compose.yml
 }
 
-if [[ $1 == "clean" ]]; then
-    clean
-elif [[ $1 == "config"  ]]; then
-    config
-elif [[ $1 == "init"  ]]; then
-    init
-else
-    init
-    config
-fi
+
+case $1 in
+    clean )
+        clean
+        ;;
+    config )
+        config
+        ;;
+    init )
+        init
+        ;;        
+    * )
+        init
+        config        
+        ;;   
+esac
+
+
+
+
