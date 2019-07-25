@@ -4,14 +4,14 @@ services:
    restart: always
    build: master/
    volumes:
-   - ##masterData##:/var/lib/mysql
+   - ./master/db:/var/lib/mysql
    command: [--character-set-server=utf8mb4,--collation-server=utf8mb4_unicode_ci,--innodb-use-native-aio=0]
    environment:
-    MYSQL_ROOT_PASSWORD: ##rootPass##
+    MYSQL_ROOT_PASSWORD: d3eb23f714529f1e73f934876d1b39
    ports:
    - 3307:3306
-   container_name: ##dockerMaster##
-   mem_limit: ##memLimit##
+   container_name: o2o-mysql-master
+   mem_limit: 8g
    logging: 
      driver: 'json-file'
      options: 
@@ -21,14 +21,14 @@ services:
    restart: always
    build: slave/
    volumes:
-   - ##slaveData##:/var/lib/mysql
+   - ./slave/db:/var/lib/mysql
    command: [--character-set-server=utf8mb4,--collation-server=utf8mb4_unicode_ci,--innodb-use-native-aio=0]
    environment:
-    MYSQL_ROOT_PASSWORD: ##rootPass##
+    MYSQL_ROOT_PASSWORD: d3eb23f714529f1e73f934876d1b39
    ports:
    - 3308:3306
-   container_name: ##dockerSlave##
-   mem_limit: ##memLimit##
+   container_name: o2o-mysql-slave
+   mem_limit: 8g
    logging: 
      driver: 'json-file'
      options: 
@@ -37,4 +37,4 @@ services:
 networks:
   default:
     external:
-      name: ##networkName##
+      name: o2o-network

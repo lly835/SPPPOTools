@@ -7,17 +7,17 @@
 
 | 名称      |     结果 |   备注   |
 | :------: | :------:| :------: |
-| 实测环境    |   mac for docker |  实测通过  |
-| 支持平台    |   Debian, Ubuntu, Fedora, CentOS and Arch Linux...Docker |    |
+| 实测环境    |   mac for docker ,docker for win7 toolbox|  实测通过  |
+| 支持平台    |  Docker环境 |    |
 | git路径    |   [setup.sh](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/docker/docker-mysql-replication/setup.sh)  |    |
 | 脚本名称    |   setup.sh  |    |
-| 执行方式    |   /bin/bash setup.sh  |    |
-| 是否需要传参数    |   否  |    |
+| 执行方式    |   /bin/bash setup.sh install [宿主机IP] |    |
+| 是否需要传参数    |   是  |    |
 | 是否有配置参数    |   有,见下  |    |
 
 **配置参数**`setup.sh`     
 
-其中`hostip`是必须修改的,其他配置可以酌情修改.       
+以下配置可以酌情修改.       
 注意: 如果你的Docker环境是通过Docker Toolbox,且是安装在windows环境,建议将isToolBox=1.     
 因为windows下数据目录共享可能会出现磁盘异步io的异常,此时通过设置`--skip-innodb-use-native-aio`关闭异步io之后就会正常.关闭异步io会导致性能下降,此参数仅建议用于测试。磁盘异步IO介绍请参考:[https://dev.mysql.com/doc/refman/5.7/en/innodb-linux-native-aio.html](https://dev.mysql.com/doc/refman/5.7/en/innodb-linux-native-aio.html)     
 
@@ -49,14 +49,16 @@ waitSlaveTime=15            #mysql主从连接初始化后等待时间,单位秒
 
 ##### 操作说明         
 
-- 初始化以及一键安装      
-  `/bin/bash setup.sh`
-- 删除数据文件且停止和删除容器  
-  `/bin/bash setup.sh clean`    
-- 初始化容器(build)   
-  `/bin/bash setup.sh init`    
-- 初始化配置容器   
-  `/bin/bash setup.sh config`    
+- 初始化以及一键安装              
+  `/bin/bash setup.sh install [宿主机IP]`      
+- 初始化以及一键安装(取默认配置文件hostip)         
+  `/bin/bash setup.sh`  
+- 删除数据文件且停止和删除容器        
+  `/bin/bash setup.sh clean`       
+- 初始化容器(build)        
+  `/bin/bash setup.sh init`      
+- 初始化配置容器       
+  `/bin/bash setup.sh config`      
 
 
 #### 运行截图     
@@ -65,3 +67,4 @@ waitSlaveTime=15            #mysql主从连接初始化后等待时间,单位秒
 
 ![2](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/docker/docker-mysql-replication/images/2.png)
 
+![3](https://gitee.com/lookingdreamer/SPPPOTools/raw/master/docker/docker-mysql-replication/images/3.png)

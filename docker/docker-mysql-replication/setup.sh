@@ -17,7 +17,7 @@ rootPass="d3eb23f714529f1e73f934876d1b39" #root密码
 replicationUser="backup"                  #复制账号
 replicationPasss="04698e89512807"         #复制密码
 masterPort=3307                           #master映射后端口
-isToolBox=0                               #是否toolBox安装docker环境，1是 0否
+isToolBox=1                               #是否toolBox安装docker环境，1是 0否
 dockerCompose="docker-compose.yml.template" #docker-compose.yml模板文件
 memLimit="8g"               #内存限制
 masterData=".\/master\/db"  #master数据目录
@@ -68,7 +68,7 @@ runCommand(){
 #init docker for mysql
 init(){
     if [[ $isToolBox -eq 0 ]]; then
-        dockerYaml=`cat $dockerCompose | sed  "s/,--skip-innodb-use-native-aio//g" ` 
+        dockerYaml=`cat $dockerCompose | sed  "s/,--innodb-use-native-aio=0//g" ` 
     else
         dockerYaml=`cat $dockerCompose`      
     fi
@@ -151,11 +151,19 @@ config(){
 }
 
 clean(){
+
     docker kill o2o-mysql-master o2o-mysql-slave
     docker rm o2o-mysql-master o2o-mysql-slave
-    docker image rm docker-mysql-replication_mysql-master docker-mysql-replication_mysql-slave
+    masterImageName=`docker images |grep "mysql-master" |awk '{print $1}'`
+    slaveImageName=`docker images |grep "mysql-slave" |awk '{print $1}'`
+    if [[ ! -z ${masterImageName} ]]; then
+        docker image rm ${masterImageName}
+    fi 
+    if [[ ! -z ${slaveImageName} ]]; then
+        docker image rm ${slaveImageName}
+    fi     
     rm -rf master/db/* slave/db/*
-    rm -f docker-compose.yml
+    # rm -f docker-compose.yml
 }
 
 
@@ -164,11 +172,21 @@ case $1 in
         clean
         ;;
     config )
+        if [[ $2 != "" ]]; then
+            hostip="$2"
+        fi
         config
         ;;
     init )
         init
-        ;;        
+        ;;    
+    install )
+        if [[ $2 != "" ]]; then
+            hostip="$2"
+        fi
+        init
+        config        
+        ;;      
     * )
         init
         config        
